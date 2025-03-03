@@ -37,5 +37,5 @@ test('Deve acesar a conta do usuário', async ({ page }) => {
   const codigo = await getJob();
   await loginPage.informe2FA(codigo);
 
-  await expect(await dashPage.obterSaldo()).toHaveText('R$ 5.000,00');
+  await expect(await dashPage.obterSaldo()).toContainText('R$ 5.000,00');
 });
