@@ -5,6 +5,15 @@ pipeline {
             args '--network qatw_skynet'
         }
     }
+     stages {
+        stage('Install Allure') {
+            steps {
+                script {
+                    // Instalar o Allure CLI no container
+                    sh 'npm install -g allure-commandline --save-dev'
+                }
+            }
+        }
 
     stages {
         stage('Node.js Deps') {

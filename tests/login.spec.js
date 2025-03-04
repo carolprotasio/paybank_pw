@@ -37,5 +37,6 @@ test('Deve acesar a conta do usuário', async ({ page }) => {
   const codigo = await getJob();
   await loginPage.informe2FA(codigo);
 
+  await page.locator('#account-balance').waitFor({ state: 'visible', timeout: 7000 });
   await expect(await dashPage.obterSaldo()).toContainText('R$ 5.000,00');
 });
